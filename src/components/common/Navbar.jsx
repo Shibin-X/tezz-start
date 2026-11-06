@@ -1,7 +1,6 @@
 
 import { useState } from 'react'
 import {
-  Layers3,
   Menu,
   X,
   Sun,
@@ -36,19 +35,24 @@ function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
 
         {/* Logo */}
-        <a
-          href="#home"
-          onClick={closeMenu}
-          className="flex items-center gap-2"
-        >
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white">
-            <Layers3 size={22} />
-          </div>
+       
 
-          <span className="text-xl font-bold tracking-tight">
-            TEZZ<span className="text-blue-500">START</span>
-          </span>
-        </a>
+<a href="/" className="flex items-center shrink-0">
+  <img
+    src={
+      darkMode
+        ? '/logo/logo-dark.webp'
+        : '/logo/logo-light.webp'
+    }
+    alt="Tezz Start - Media & Solutions"
+    width="497"
+    height="146"
+    className="w-[155px] sm:w-[180px] h-auto object-contain"
+    loading="eager"
+    fetchPriority="high"
+  />
+</a>
+
 
         {/* Desktop navigation */}
         <nav className="hidden items-center gap-7 lg:flex">
