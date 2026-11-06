@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion'
 
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../context/useTheme'
 import { services } from '../../data/services'
 
 import ServiceCard from '../ui/ServiceCard'

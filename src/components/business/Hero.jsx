@@ -9,7 +9,7 @@ import {
   Globe2,
 } from 'lucide-react'
 
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../context/useTheme'
 
 function Hero() {
   const { theme } = useTheme()

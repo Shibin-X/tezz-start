@@ -1,5 +1,5 @@
 
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../context/useTheme'
 
 function ServiceCard({ service, index = 0 }) {
   const { theme } = useTheme()

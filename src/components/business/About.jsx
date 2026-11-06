@@ -1,6 +1,6 @@
 
 import { ArrowUpRight } from 'lucide-react'
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../context/useTheme'
 
 function About() {
   const { theme } = useTheme()

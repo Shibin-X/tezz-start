@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion'
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../context/useTheme'
 import { projects } from '../../data/projects'
 
 function Projects() {

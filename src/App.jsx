@@ -9,7 +9,8 @@ import StudentInitiative from './components/business/StudentInitiative'
 import WhyChooseUs from './components/business/WhyChooseUs'
 import Contact from './components/business/Contact'
 
-import { ThemeProvider, useTheme } from './context/ThemeContext'
+import { ThemeProvider } from './context/ThemeProvider'
+import { useTheme } from './context/useTheme'
 
 function HomePage() {
   const { theme } = useTheme()

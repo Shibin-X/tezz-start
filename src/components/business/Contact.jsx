@@ -7,7 +7,7 @@ import {
   Send,
 } from 'lucide-react'
 
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../context/useTheme'
 
 // Replace with your WhatsApp number.
 // Include country code without + or spaces.
