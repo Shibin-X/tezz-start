@@ -3,15 +3,16 @@ import { useState } from 'react'
 import {
   Mail,
   Phone,
-  MapPin,
   Send,
+  MessageCircle,
+  ArrowUpRight,
 } from 'lucide-react'
 
 import { useTheme } from '../../context/useTheme'
 
-// Replace with your WhatsApp number.
-// Include country code without + or spaces.
-const WHATSAPP_NUMBER = '91XXXXXXXXXX'
+// Contact details
+const WHATSAPP_NUMBER = '917305651107'
+const EMAIL_ADDRESS = 'career@tezzstart.com'
 
 const serviceOptions = [
   'Web Development',
@@ -44,11 +45,6 @@ function Contact() {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    if (WHATSAPP_NUMBER === '91XXXXXXXXXX') {
-      alert('Please configure your WhatsApp number in Contact.jsx first.')
-      return
-    }
-
     const message = `
 Hello Tezz Start!
 
@@ -80,7 +76,7 @@ ${form.message}
     >
       <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:px-8">
 
-        {/* Contact information */}
+        {/* Contact Information */}
         <div>
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-500">
             Get In Touch
@@ -99,7 +95,8 @@ ${form.message}
             help you with your next digital project.
           </p>
 
-          <div className="mt-10 space-y-6">
+          {/* Contact Details */}
+          <div className="mt-10 space-y-7">
 
             {/* Email */}
             <div className="flex items-center gap-4">
@@ -108,42 +105,60 @@ ${form.message}
               </div>
 
               <div>
-                <p className={`text-sm ${theme.muted}`}>
-                  Email
+                <p className={`mb-1 text-sm ${theme.muted}`}>
+                  Email Address
                 </p>
 
-                <p className="font-medium">
-                  Replace with your business email
-                </p>
+                <a
+                  href={`mailto:${EMAIL_ADDRESS}`}
+                  className="font-medium transition hover:text-blue-500"
+                >
+                  {EMAIL_ADDRESS}
+                </a>
               </div>
+
+              <ArrowUpRight
+                size={18}
+                className={`ml-auto ${theme.muted}`}
+              />
             </div>
 
             {/* WhatsApp */}
+            <div className="flex items-center gap-4">
+              <div className="rounded-xl bg-green-500/10 p-3 text-green-500">
+                <MessageCircle size={22} />
+              </div>
+
+              <div>
+                <p className={`mb-1 text-sm ${theme.muted}`}>
+                  WhatsApp
+                </p>
+
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium transition hover:text-green-500"
+                >
+                  +91 73056 51107
+                </a>
+              </div>
+
+              <ArrowUpRight
+                size={18}
+                className={`ml-auto ${theme.muted}`}
+              />
+            </div>
+
+            {/* Location - Text Only */}
             <div className="flex items-center gap-4">
               <div className="rounded-xl bg-blue-500/10 p-3 text-blue-500">
                 <Phone size={22} />
               </div>
 
               <div>
-                <p className={`text-sm ${theme.muted}`}>
-                  WhatsApp
-                </p>
-
-                <p className="font-medium">
-                  Contact us through WhatsApp
-                </p>
-              </div>
-            </div>
-
-            {/* Location */}
-            <div className="flex items-center gap-4">
-              <div className="rounded-xl bg-blue-500/10 p-3 text-blue-500">
-                <MapPin size={22} />
-              </div>
-
-              <div>
-                <p className={`text-sm ${theme.muted}`}>
-                  Location
+                <p className={`mb-1 text-sm ${theme.muted}`}>
+                  Service Area
                 </p>
 
                 <p className="font-medium">
@@ -153,16 +168,32 @@ ${form.message}
             </div>
 
           </div>
+
+          {/* Contact CTA */}
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello Tezz Start! I would like to know more about your services.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 inline-flex items-center gap-2 rounded-xl bg-green-600 px-6 py-3 font-semibold text-white transition hover:bg-green-700"
+          >
+            Chat on WhatsApp
+            <ArrowUpRight size={18} />
+          </a>
         </div>
 
-        {/* Enquiry form */}
+        {/* Enquiry Form */}
         <form
           onSubmit={handleSubmit}
           className={`rounded-3xl border ${theme.border} ${theme.surface} p-7 sm:p-9`}
         >
-          <h3 className="mb-7 text-2xl font-bold">
+          <h3 className="mb-2 text-2xl font-bold">
             Send an Enquiry
           </h3>
+
+          <p className={`mb-7 text-sm ${theme.muted}`}>
+            Fill in your details and send your project enquiry directly
+            through WhatsApp.
+          </p>
 
           <div className="space-y-5">
 
@@ -208,7 +239,7 @@ ${form.message}
               />
             </div>
 
-            {/* Service dropdown */}
+            {/* Service Dropdown */}
             <div>
               <label
                 htmlFor="service"
@@ -237,8 +268,12 @@ ${form.message}
                     key={service}
                     value={service}
                     style={{
-                      backgroundColor: darkMode ? '#10182a' : '#ffffff',
-                      color: darkMode ? '#ffffff' : '#0f172a',
+                      backgroundColor: darkMode
+                        ? '#10182a'
+                        : '#ffffff',
+                      color: darkMode
+                        ? '#ffffff'
+                        : '#0f172a',
                     }}
                   >
                     {service}
@@ -268,7 +303,7 @@ ${form.message}
               />
             </div>
 
-            {/* Submit */}
+            {/* Submit Button */}
             <button
               type="submit"
               className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-4 font-semibold text-white transition hover:bg-blue-700"
